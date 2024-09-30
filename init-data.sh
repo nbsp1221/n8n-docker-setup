@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+SQL_COMMANDS="
+  CREATE USER ${POSTGRES_NON_ROOT_USER} WITH PASSWORD '${POSTGRES_NON_ROOT_PASSWORD}';
+  GRANT ALL PRIVILEGES ON DATABASE ${POSTGRES_DB} TO ${POSTGRES_NON_ROOT_USER};
+  GRANT CREATE ON SCHEMA public TO ${POSTGRES_NON_ROOT_USER};
+"
+
+if [ -n "${POSTGRES_NON_ROOT_USER:-}" ] && [ -n "${POSTGRES_NON_ROOT_PASSWORD:-}" ]; then
+  echo "$SQL_COMMANDS" | psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB"
+else
+  echo "No Environment variables given!"
+fi
