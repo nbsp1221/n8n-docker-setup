@@ -6,6 +6,7 @@
 
 [![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org)
+[![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
 [![Caddy](https://img.shields.io/badge/Caddy-1F88C0?style=for-the-badge&logo=caddy&logoColor=white)](https://caddyserver.com)
 
@@ -29,6 +30,7 @@ My personal Docker Compose setup for running n8n with supporting services, desig
 
 - **🔄 n8n**: Workflow automation platform
 - **🗄️ PostgreSQL**: Persistent database storage
+- **📦 Redis**: In-memory data store for caching and state management
 - **🔒 HTTPS Ready**: Designed for Caddy reverse proxy
 - **🏥 Health Checks**: Automatic service recovery
 - **📦 Minimal Setup**: Just a few commands to get started
@@ -154,6 +156,7 @@ docker compose up -d
 
 - **[n8n Documentation](https://docs.n8n.io)** - Official workflow guides
 - **[PostgreSQL Documentation](https://www.postgresql.org/docs)** - Database reference
+- **[Redis Documentation](https://redis.io/docs/latest)** - In-memory data store
 - **[Caddy Documentation](https://caddyserver.com/docs)** - Reverse proxy setup
 
 ## 📄 License

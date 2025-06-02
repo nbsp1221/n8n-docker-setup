@@ -19,6 +19,19 @@ services:
       timeout: 5s
       retries: 10
 
+  redis:
+    image: redis:8-alpine
+    restart: always
+    volumes:
+      - redis-data:/data
+    networks:
+      - n8n-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   n8n:
     image: docker.n8n.io/n8nio/n8n
     restart: always
@@ -46,6 +59,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--spider", "http://127.0.0.1:${N8N_PORT}/healthz", "-q"]
       interval: 30s
@@ -62,4 +77,5 @@ networks:
 
 volumes:
   postgres-data:
+  redis-data:
   n8n-data:
